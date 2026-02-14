@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 330 50% 97%;
+    --foreground: 340 30% 15%;
+
+    --card: 330 60% 97%;
+    --card-foreground: 340 30% 15%;
+
+    --popover: 330 60% 97%;
+    --popover-foreground: 340 30% 15%;
+
+    --primary: 340 72% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 40% 94%;
+    --secondary-foreground: 280 30% 30%;
+
+    --muted: 320 25% 94%;
+    --muted-foreground: 320 15% 48%;
+
+    --accent: 260 50% 92%;
+    --accent-foreground: 260 40% 35%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 320 30% 90%;
+    --input: 320 25% 88%;
+    --ring: 340 72% 58%;
+
+    --radius: 1rem;
+
+    --gradient-romantic: linear-gradient(135deg, hsl(340, 72%, 58%), hsl(310, 60%, 62%), hsl(270, 55%, 68%));
+    --gradient-soft: linear-gradient(160deg, hsl(330, 60%, 97%), hsl(280, 50%, 95%), hsl(320, 55%, 96%));
+    --gradient-chat-bg: linear-gradient(180deg, hsl(330, 50%, 96%), hsl(280, 40%, 94%), hsl(320, 45%, 95%));
+    --gradient-chat-sent: linear-gradient(135deg, hsl(340, 72%, 58%), hsl(310, 55%, 60%));
+    --gradient-chat-received: linear-gradient(135deg, hsl(280, 40%, 96%), hsl(320, 45%, 94%));
+    --gradient-golden: linear-gradient(135deg, hsl(40, 80%, 60%), hsl(30, 70%, 55%));
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 280 20% 6%;
+    --foreground: 320 20% 95%;
+
+    --card: 280 18% 9%;
+    --card-foreground: 320 20% 95%;
+
+    --popover: 280 18% 9%;
+    --popover-foreground: 320 20% 95%;
+
+    --primary: 340 72% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 20% 16%;
+    --secondary-foreground: 280 20% 90%;
+
+    --muted: 280 15% 16%;
+    --muted-foreground: 320 10% 58%;
+
+    --accent: 260 25% 18%;
+    --accent-foreground: 260 25% 90%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 280 15% 18%;
+    --input: 280 15% 18%;
+    --ring: 340 72% 58%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .romantic-gradient {
+    background: var(--gradient-romantic);
+  }
+
+  .romantic-gradient-text {
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .soft-gradient {
+    background: var(--gradient-soft);
+    min-height: 100vh;
+  }
+
+  .chat-bg {
+    background: var(--gradient-chat-bg);
+  }
+
+  .chat-bubble-sent {
+    background: var(--gradient-chat-sent);
+    color: white;
+    border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+    box-shadow: 0 4px 14px -4px hsl(340 72% 58% / 0.35);
+  }
+
+  .chat-bubble-received {
+    background: var(--gradient-chat-received);
+    color: hsl(var(--foreground));
+    border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+    box-shadow: 0 4px 14px -4px hsl(280 40% 70% / 0.2);
+  }
+
+  .glass-card {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--border) / 0.4);
+    box-shadow: 0 4px 24px -6px hsl(320 40% 60% / 0.1);
+  }
+
+  .golden-glow {
+    background: var(--gradient-golden);
+    box-shadow: 0 4px 20px -4px hsl(40 80% 50% / 0.35);
+  }
+
+  .romantic-btn {
+    background: var(--gradient-romantic);
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px -4px hsl(340 72% 58% / 0.4);
+    transition: all 0.2s ease;
+  }
+
+  .romantic-btn:hover {
+    box-shadow: 0 6px 24px -4px hsl(340 72% 58% / 0.5);
+    transform: translateY(-1px);
+  }
+
+  .romantic-btn:active {
+    transform: translateY(0px) scale(0.98);
+  }
+
+  .romantic-input {
+    @apply rounded-xl border-border/60 bg-card/60;
+    backdrop-filter: blur(12px);
+    transition: all 0.2s ease;
+  }
+
+  .romantic-input:focus {
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.3); }
+  70% { transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
