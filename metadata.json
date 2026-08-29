@@ -1,0 +1,11 @@
+{
+  "name": "Together Mile",
+  "description": "An intimate and engaging platform for couples to connect, share moments, chat, play games, and grow together.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
